@@ -1,0 +1,229 @@
+﻿@page
+@model RazorPagesPdfs.Pages.Pdfs.FillModel
+@{
+    ViewData["Title"] = "Fill";
+}
+
+<h4>PDF编辑器</h4>
+<hr />
+<form method="post" class="form-horizontal">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <fieldset>
+        <legend>Your full name</legend>
+        <div class="form-group">
+        <label asp-for="Pdf.Fam" class="control-label"></label>
+        <input asp-for="Pdf.Fam" class="form-control" />
+        <span asp-validation-for="Pdf.Fam" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+        <label asp-for="Pdf.Giv" class="control-label"></label>
+        <input asp-for="Pdf.Giv" class="form-control" />
+        <span asp-validation-for="Pdf.Giv" class="text-danger"></span>
+        </div>
+    </fieldset>
+    <hr />
+    <fieldset>
+        <legend>Date of birth</legend>
+        <div class="form-group">
+        <input asp-for="Pdf.Dob" class="form-control" />
+        <span asp-validation-for="Pdf.Dob" class="text-danger"></span>
+        </div>
+    </fieldset>
+    <hr />
+    <fieldset>
+        <legend>Place of birth</legend>
+        <div class="form-group">
+        <label asp-for="Pdf.BirthTown" class="control-label"></label>
+        <input asp-for="Pdf.BirthTown" class="form-control" />
+        <span asp-validation-for="Pdf.BirthTown" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+        <label asp-for="Pdf.BirthCntry" class="control-label"></label>
+        <input asp-for="Pdf.BirthCntry" class="form-control" />
+        <span asp-validation-for="Pdf.BirthCntry" class="text-danger"></span>
+        </div>
+    </fieldset>
+    <hr />
+    <fieldset>
+        <legend>Relationship status</legend>
+        <div class="form-group">
+        @foreach (var status in Model.StatusList)
+        {
+            <input type="radio" asp-for="Pdf.Restatus" value="@status" />@status<br />
+        }
+        </div>
+    </fieldset>
+    <hr />
+    <fieldset>
+        <legend>Details from your passport</legend>
+        <div class="form-group">
+        <label asp-for="Pdf.PassNo" class="control-label"></label>
+        <input asp-for="Pdf.PassNo" class="form-control" />
+        <span asp-validation-for="Pdf.PassNo" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+        <label asp-for="Pdf.PassCntry" class="control-label"></label>
+        <input asp-for="Pdf.PassCntry" class="form-control" />
+        <span asp-validation-for="Pdf.PassCntry" class="text-danger"></span>
+        </div>
+    </fieldset>
+    <hr />
+    <fieldset>
+        <legend>Details of identity card</legend>
+        <div class="form-group">
+        <label asp-for="Pdf.IdentNo" class="control-label"></label>
+        <input asp-for="Pdf.IdentNo" class="form-control" />
+        <span asp-validation-for="Pdf.IdentNo" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+        <label asp-for="Pdf.IdentCntry" class="control-label"></label>
+        <input asp-for="Pdf.IdentCntry" class="form-control" />
+        <span asp-validation-for="Pdf.IdentCntry" class="text-danger"></span>
+        </div>
+    </fieldset>
+    <hr />
+    <fieldset>
+        <legend>Your present country of citizenship</legend>
+        <div class="form-group">
+        <input asp-for="Pdf.Cit" class="form-control" />
+        <span asp-validation-for="Pdf.Cit" class="text-danger"></span>
+        </div>
+    </fieldset>
+    <hr />
+    <fieldset>
+        <legend>Your current residential address</legend>
+        <div class="form-group">
+        <label asp-for="Pdf.ResiStr" class="control-label"></label>
+        <input asp-for="Pdf.ResiStr" class="form-control" />
+        <span asp-validation-for="Pdf.ResiStr" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+        <label asp-for="Pdf.ResiSub" class="control-label"></label>
+        <input asp-for="Pdf.ResiSub" class="form-control" />
+        <span asp-validation-for="Pdf.ResiSub" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+        <label asp-for="Pdf.ResiCntry" class="control-label"></label>
+        <input asp-for="Pdf.ResiCntry" class="form-control" />
+        <span asp-validation-for="Pdf.ResiCntry" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+        <label asp-for="Pdf.ResiPc" class="control-label"></label>
+        <input asp-for="Pdf.ResiPc" class="form-control" />
+        <span asp-validation-for="Pdf.ResiPc" class="text-danger"></span>
+        </div>
+    </fieldset>
+    <hr />
+    <fieldset>
+        <legend>Address for correspondence</legend>
+        <div class="form-group">
+        <label asp-for="Pdf.CorrespStr" class="control-label"></label>
+        <input asp-for="Pdf.CorrespStr" class="form-control" />
+        <span asp-validation-for="Pdf.CorrespStr" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+        <label asp-for="Pdf.CorrespSub" class="control-label"></label>
+        <input asp-for="Pdf.CorrespSub" class="form-control" />
+        <span asp-validation-for="Pdf.CorrespSub" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+        <label asp-for="Pdf.CorrespCntry" class="control-label"></label>
+        <input asp-for="Pdf.CorrespCntry" class="form-control" />
+        <span asp-validation-for="Pdf.CorrespCntry" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+        <label asp-for="Pdf.CorrespHap" class="control-label"></label>
+        <input asp-for="Pdf.CorrespHap" class="form-control" />
+        <span asp-validation-for="Pdf.CorrespHap" class="text-danger"></span>
+        </div>
+    </fieldset>
+    <hr />
+    <fieldset>
+        <legend>Your telephone numbers</legend>
+        <fieldset name="Office hours">
+            <legend>Office hours</legend>
+            <div class="form-group">
+            <label asp-for="Pdf.OffPhCc" class="control-label"></label>
+            <input asp-for="Pdf.OffPhCc" class="form-control" />
+            <span asp-validation-for="Pdf.OffPhCc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+            <label asp-for="Pdf.OffPhAc" class="control-label"></label>
+            <input asp-for="Pdf.OffPhAc" class="form-control" />
+            <span asp-validation-for="Pdf.OffPhAc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+            <label asp-for="Pdf.OffPh" class="control-label"></label>
+            <input asp-for="Pdf.OffPh" class="form-control" />
+            <span asp-validation-for="Pdf.OffPh" class="text-danger"></span>
+            </div>
+        </fieldset>
+        <fieldset name="After hours">
+            <legend>After hours</legend>
+            <div class="form-group">
+            <label asp-for="Pdf.AfterPhCc" class="control-label"></label>
+            <input asp-for="Pdf.AfterPhCc" class="form-control" />
+            <span asp-validation-for="Pdf.AfterPhCc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+            <label asp-for="Pdf.AfterPhAc" class="control-label"></label>
+            <input asp-for="Pdf.AfterPhAc" class="form-control" />
+            <span asp-validation-for="Pdf.AfterPhAc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+            <label asp-for="Pdf.AfterPn" class="control-label"></label>
+            <input asp-for="Pdf.AfterPn" class="form-control" />
+            <span asp-validation-for="Pdf.AfterPn" class="text-danger"></span>
+            </div>
+        </fieldset>
+    </fieldset>
+    <hr />
+    <fieldset>
+        <legend>Do you agree to the Department communicating with you by fax, emailor other electronic means?</legend>
+        <fieldset name="Fax number">
+            <legend>Fax number</legend>
+            <div class="form-group">
+            <label asp-for="Pdf.FaxCc" class="control-label"></label>
+            <input asp-for="Pdf.FaxCc" class="form-control" />
+            <span asp-validation-for="Pdf.FaxCc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+            <label asp-for="Pdf.FaxAc" class="control-label"></label>
+            <input asp-for="Pdf.FaxAc" class="form-control" />
+            <span asp-validation-for="Pdf.FaxAc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+            <label asp-for="Pdf.FaxPh" class="control-label"></label>
+            <input asp-for="Pdf.FaxPh" class="form-control" />
+            <span asp-validation-for="Pdf.FaxPh" class="text-danger"></span>
+            </div>
+        </fieldset>
+        <fieldset name="Email address">
+            <legend>Email address</legend>
+            <div class="form-group">
+            <input asp-for="Pdf.Email" class="form-control" />
+            <span asp-validation-for="Pdf.Email" class="text-danger"></span>
+            </div>
+        </fieldset>
+    </fieldset>
+    <hr />
+    <fieldset>
+        <legend>Client number or file number</legend>
+        <div class="form-group">
+        <input asp-for="Pdf.FileNo" class="form-control" />
+        <span asp-validation-for="Pdf.FileNo" class="text-danger"></span>
+        </div>
+    </fieldset>
+    <div class="form-group">
+        <input type="submit" value="提交并下载" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    <a asp-page="Index">返回首页</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
